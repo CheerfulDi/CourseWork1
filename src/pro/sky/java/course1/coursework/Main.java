@@ -26,9 +26,9 @@ public class Main {
         System.out.println();
         System.out.println("Сумма затрат на зарплаты в месяц: " + calculateTotalSalarySumPerMonth(employees));
         System.out.println();
-        findMinSalaryEmployee(employees);
+        System.out.println("Сотрудник с минимальной зарплатой: " + findMinSalaryEmployee(employees));
         System.out.println();
-        findMaxSalaryEmployee(employees);
+        System.out.println("Сотрудник с максимальной зарплатой: " + findMaxSalaryEmployee(employees));
         System.out.println();
         System.out.println("Средняя зарплата среди сотрудников: " + calculateAverageEmployeesSalary(employees));
         System.out.println();
@@ -51,28 +51,34 @@ public class Main {
         return sum;
     }
 
-    public static void findMinSalaryEmployee(Employee[] employees) {
-        int min = employees[0].getSalary();
-        String poorEmployee = null;
-        for (Employee employee : employees) {
-            if (employee.getSalary() < min) {
-                min = employee.getSalary();
-                poorEmployee = employee.getFullName();
-            }
+    public static String findMinSalaryEmployee(Employee[] employees) {
+        if (employees.length == 0){
+            return null;
+        } else {
+            int min = employees[0].getSalary();
+            String poorEmployee = null;
+            for (Employee employee : employees) {
+                if (employee.getSalary() < min) {
+                    min = employee.getSalary();
+                    poorEmployee = employee.getFullName();
+                }
+            }return poorEmployee;
         }
-        System.out.println("Сотрудник с минимальной зарплатой: " + poorEmployee);
     }
 
-    public static void findMaxSalaryEmployee(Employee[] employees) {
-        int max = employees[0].getSalary();
-        String richEmployee = null;
-        for (Employee employee : employees) {
-            if (employee.getSalary() > max) {
-                max = employee.getSalary();
-                richEmployee = employee.getFullName();
-            }
+    public static String findMaxSalaryEmployee(Employee[] employees) {
+        if (employees.length == 0){
+            return null;
+        } else {
+            int max = employees[0].getSalary();
+            String richEmployee = null;
+            for (Employee employee : employees) {
+                if (employee.getSalary() > max) {
+                    max = employee.getSalary();
+                    richEmployee = employee.getFullName();
+                }
+            } return richEmployee;
         }
-        System.out.println("Сотрудник с максимальной зарплатой: " + richEmployee);
     }
 
     public static int calculateAverageEmployeesSalary(Employee[] employees) {

@@ -2,11 +2,14 @@ package pro.sky.java.course1.coursework;
 import java.util.Objects;
 
 public class Employee {
+    private static int idCounter;
+    private static final int MIN_DEPARTMENT = 1;
+    private static final int MAX_DEPARTMENT = 5;
+
     private String fullName;
     private int salary;
     private int department;
     private int id;
-    private static int idCounter;
 
     public Employee(String fullName, int salary, int department) {
         idCounter++;
@@ -41,7 +44,7 @@ public class Employee {
     }
 
     public void setDepartment(int department) {
-        if (department >= 0 && department <= 5) {
+        if (department >= MIN_DEPARTMENT && department <= MAX_DEPARTMENT) {
             this.department = department;
         } throw new IllegalArgumentException("В компании всего 5 департаментов. Пожалуйста, введите значение от 1 до 5.");
     }
