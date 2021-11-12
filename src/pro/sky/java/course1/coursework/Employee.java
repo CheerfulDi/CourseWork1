@@ -1,17 +1,19 @@
 package pro.sky.java.course1.coursework;
 import java.util.Objects;
 
+import static java.lang.String.format;
+
 public class Employee {
     private static int idCounter;
     private static final int MIN_DEPARTMENT = 1;
     private static final int MAX_DEPARTMENT = 5;
 
     private String fullName;
-    private int salary;
+    private double salary;
     private int department;
     private int id;
 
-    public Employee(String fullName, int salary, int department) {
+    public Employee(String fullName, double salary, int department) {
         idCounter++;
         this.fullName = fullName;
         this.salary = salary;
@@ -31,7 +33,7 @@ public class Employee {
         return fullName;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
@@ -39,7 +41,7 @@ public class Employee {
         return department;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
@@ -50,7 +52,7 @@ public class Employee {
     }
 
     public String toString() {
-        return "FullName: " + fullName + ". Salary: " + salary + ". Department: " + department + ".";
+        return "FullName: " + fullName + ". Salary: " + format("%.2f", salary) + ". Department: " + department + ".";
 
     }
 
