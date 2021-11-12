@@ -1,5 +1,4 @@
 package pro.sky.java.course1.coursework;
-import java.util.Objects;
 
 import static java.lang.String.format;
 
@@ -45,15 +44,17 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void setDepartment(int department) {
+    public void setDepartment(int newDepartment) {
         if (department >= MIN_DEPARTMENT && department <= MAX_DEPARTMENT) {
-            this.department = department;
-        } throw new IllegalArgumentException("В компании всего 5 департаментов. Пожалуйста, введите значение от 1 до 5.");
-    }
+            department = newDepartment;
+        } else{
+            throw new IllegalArgumentException("В компании всего 5 департаментов. Пожалуйста, введите значение от 1 до 5.");
+        }
+        }
+
 
     public String toString() {
         return "FullName: " + fullName + ". Salary: " + format("%.2f", salary) + ". Department: " + department + ".";
-
     }
 
 }
